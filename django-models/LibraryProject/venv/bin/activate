@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/mac/Documents/ALX/Alx_DjangoLearnLab/0x1.Introduction_ to_ Django/LibraryProject/venv"
+VIRTUAL_ENV="/Users/mac/Documents/ALX/Alx_DjangoLearnLab/django-models/LibraryProject/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
