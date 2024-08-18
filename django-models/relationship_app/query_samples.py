@@ -1,26 +1,22 @@
 from relationship_app.models import Author, Book, Library, Librarian
-from .models import Author  # Adjust the import according to your models setup
-# Assuming 'author_name' is defined somewhere or is a parameter to a function
-author_name = "Some Author Name"
+
+# Query all books by a specific author
+author_name = "Author Name"  # Replace with the actual author's name
 author = Author.objects.get(name=author_name)
+books_by_author = Book.objects.filter(author=author)
+print(f"Books by {author_name}:")
+for book in books_by_author:
+    print(book.title)
 
-# Assuming you need to retrieve objects related to this author, such as books
-books = Book.objects.filter(author=author)  # Adjust 'Book' to your related model
+# List all books in a library
+library_name = "Library Name"  # Replace with the actual library's name
+library = Library.objects.get(name=library_name)
+books_in_library = library.books.all()
+print(f"Books in {library_name}:")
+for book in books_in_library:
+    print(book.title)
 
-def query_books_by_author(author_name):
-    return Book.objects.filter(author__name=author_name)
-
-def list_all_books_in_library(library_name):
-    library = Library.objects.get(name=library_name)
-    return library.books.all()
-
-def retrieve_librarian_for_library(library_name):
-    library = Library.objects.get(name=library_name)
-    return Librarian.objects.get(library=library)
-
-# Examples for testing the functions:
-if __name__ == "__main__":
-    # Testing with sample data 
-    print(query_books_by_author("Author Name"))
-    print(list_all_books_in_library("Library Name"))
-    print(retrieve_librarian_for_library("Library Name"))
+# Retrieve the librarian for a library
+library = Library.objects.get(name=library_name)
+librarian = Librarian.objects.get(library=library)
+print(f"Librarian for {library_name}: {librarian.name}")

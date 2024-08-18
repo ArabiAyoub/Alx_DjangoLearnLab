@@ -1,9 +1,15 @@
 from django.contrib import admin
+
+# Register your models here.
 from .models import Book
+
+admin.site.register(Book)
 
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'publication_year')
-    list_filter = ('author', 'publication_year')  # Enables filtering by these fields
-    search_fields = ('title', 'author__name')  # Enables searching by title and author name
+    
+    list_filter = ('author', 'publication_year')
+    
+    search_fields = ('title', 'author')
 
 admin.site.register(Book, BookAdmin)

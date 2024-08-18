@@ -1,11 +1,1 @@
-# Delete Operation for Book
-
-This guide explains the necessary steps to delete a `Book` instance from the database using Django's ORM.
-
-## Import Model
-
-To perform any operation on the `Book` model, it must first be imported:
-
-```python
-book.delete()
-from bookshelf.models import Book
+from bookshelf.models import Book instance = Book.objects.create(id=1,title='1984',author='George Orwell',publication_year= '1949') book = Book.objects.get(id=1) book.delete()
