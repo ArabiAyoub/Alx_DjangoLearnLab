@@ -8,8 +8,12 @@ from .models import UserProfile
 
 def role_check(role):
     def check(user):
-        return hasattr(user, 'userprofile') and user.userprofile.role == role
+        return user.is_authenticated and hasattr(user, 'userprofile') and user.userprofile.role == role
     return check
+
+@user_passes_test(role_check('Admin'))
+def admin_view(request):
+    return render(request, 'admin_view.html')
 
 @user_passes_test(role_check('Admin'))
 def admin_view(request):
