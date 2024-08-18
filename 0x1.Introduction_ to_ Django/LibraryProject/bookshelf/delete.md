@@ -1,9 +1,11 @@
-# Delete Operation
+# Delete Operation for Book
 
-This section shows the process of deleting a `Book` instance from the database using Django's ORM.
+This guide explains the necessary steps to delete a `Book` instance from the database using Django's ORM.
 
-**Preparation:**
-Import the `Book` model from the `bookshelf.models` module to access the database records of books.
+## Import Model
+
+To perform any operation on the `Book` model, it must first be imported:
 
 ```python
+book.delete()
 from bookshelf.models import Book
