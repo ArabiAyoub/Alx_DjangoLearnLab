@@ -1,11 +1,9 @@
-**delete.md**
-```markdown
 # Delete Operation
 
-**Command:**
-```python
-book.delete()
-books = Book.objects.all()
-print(books)
+This section shows the process of deleting a `Book` instance from the database using Django's ORM.
 
-"<QuerySet []>"
+**Preparation:**
+Import the `Book` model from the `bookshelf.models` module to access the database records of books.
+
+```python
+from bookshelf.models import Book
