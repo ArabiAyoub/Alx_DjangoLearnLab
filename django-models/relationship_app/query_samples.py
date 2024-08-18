@@ -1,4 +1,11 @@
 from relationship_app.models import Author, Book, Library, Librarian
+from .models import Author  # Adjust the import according to your models setup
+# Assuming 'author_name' is defined somewhere or is a parameter to a function
+author_name = "Some Author Name"
+author = Author.objects.get(name=author_name)
+
+# Assuming you need to retrieve objects related to this author, such as books
+books = Book.objects.filter(author=author)  # Adjust 'Book' to your related model
 
 def query_books_by_author(author_name):
     return Book.objects.filter(author__name=author_name)
