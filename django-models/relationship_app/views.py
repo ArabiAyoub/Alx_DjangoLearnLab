@@ -11,8 +11,4 @@ class LibraryDetailView(DetailView):
 
 def list_books(request):
     books = Book.objects.all()
-    content = '<h1>Books Available:</h1><ul>'
-    for book in books:
-        content += f'<li>{book.title} by {book.author.name}</li>'
-    content += '</ul>'
-    return HttpResponse(content)
+    return render(request, 'relationship_app/list_books.html', {'books': books})
